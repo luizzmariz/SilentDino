@@ -43,6 +43,14 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnInteract(InputValue value)
+		{
+			if(value.isPressed)
+			{
+				GetComponent<PlayerInteract>().Interact();
+			}
+		}
 #endif
 
 
