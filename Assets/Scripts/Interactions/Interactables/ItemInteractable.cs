@@ -6,8 +6,6 @@ public class ItemInteractable : Interactable
     
     public override void Interact()
     {
-        Debug.Log(itemDescription);
-
-        Destroy(gameObject);
+        CanvaManager.instance.EnterItemView(this);
     }
 }

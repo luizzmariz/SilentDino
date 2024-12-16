@@ -37,7 +37,7 @@ public class PlayerInteract : MonoBehaviour
 
             if(interactableObject != null)
             {
-                Debug.Log("grewg");
+                //Debug.Log("grewg");
                 SetInteractable(interactableObject);
                 ChangeInteractionText(interactableObject.interactableName);
             }
