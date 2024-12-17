@@ -120,8 +120,8 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PixelHeight: 40
-    - _PixelWidth: 40
+    - _PixelHeight: 734
+    - _PixelWidth: 1371
     - _QuantizationLevels: 41
     - _QueueOffset: 0
     - _ReceiveShadows: 0
