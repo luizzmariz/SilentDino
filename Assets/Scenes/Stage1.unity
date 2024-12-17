@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 2134296785}
   panelText: {fileID: 955069451}
-  panelImage: {fileID: 0}
+  panelImage: {fileID: 1620035807}
   playerController: {fileID: 1809660446}
 --- !u!114 &88395359
 MonoBehaviour:
@@ -3869,6 +3869,14 @@ PrefabInstance:
     - target: {fileID: 6508898033707119693, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: itemImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b5cf2dd17498dd458557d8720f98b95, type: 3}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: itemDescription
+      value: Fuck you Aniosio
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

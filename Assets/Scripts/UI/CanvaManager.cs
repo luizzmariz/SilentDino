@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 using StarterAssets;
+using UnityEngine.UI;
 
 public class CanvaManager : MonoBehaviour
 {
@@ -59,6 +59,7 @@ public class CanvaManager : MonoBehaviour
     void ChangePanelContent(ItemInteractable item)
     {
         panelText.text = item.itemDescription;
+        panelImage.sprite = item.itemImage;
     }
 
     void OpenPanel()
