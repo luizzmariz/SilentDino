@@ -51,7 +51,7 @@ public class CanvaManager : MonoBehaviour
 
         FadeScreen.instance.FadeOutScreen();
 
-        yield return new WaitForSeconds(5); 
+        yield return new WaitForSeconds(30); 
 
         LeaveItemView();
     }
