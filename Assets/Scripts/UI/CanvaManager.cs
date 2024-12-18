@@ -11,8 +11,9 @@ public class CanvaManager : MonoBehaviour
 
     public GameObject itemPanel;
     public TMP_Text panelText;
-    public int panelTextIndex;
+    int panelTextIndex;
     public Image panelImage;
+    bool inTransition;
     ItemInteractable itemInView;
 
     public FirstPersonController playerController;
@@ -31,6 +32,7 @@ public class CanvaManager : MonoBehaviour
 
         itemPanel.SetActive(false);
         _UIController = GetComponent<UIController>();
+        inTransition = false;
     }
 
     public void EnterItemView(ItemInteractable item)
@@ -47,6 +49,8 @@ public class CanvaManager : MonoBehaviour
 
     IEnumerator EnterItemViewTransition(ItemInteractable item)
     {
+        inTransition = true;
+
         FadeScreen.instance.FadeInScreen();
 
         yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
@@ -57,9 +61,9 @@ public class CanvaManager : MonoBehaviour
 
         FadeScreen.instance.FadeOutScreen();
 
-        // yield return new WaitForSeconds(5); 
+        yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == false);
 
-        // LeaveItemView();
+        inTransition = false;
     }
 
     void ChangePanelContent(ItemInteractable item)
@@ -97,6 +101,8 @@ public class CanvaManager : MonoBehaviour
 
     IEnumerator LeaveItemViewTransition()
     {
+        inTransition = true;
+
         FadeScreen.instance.FadeInScreen();
 
         yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
@@ -109,6 +115,8 @@ public class CanvaManager : MonoBehaviour
         yield return new WaitUntil(() => FadeScreen.instance.fadeOcurring == false);
 
         EnablePlayerMovementsController();
+
+        inTransition = false;
     }
 
     void ClosePanel()
@@ -123,19 +131,42 @@ public class CanvaManager : MonoBehaviour
 
     public void Navigate(Vector2 navigations)
     {
-        if(itemPanel.activeSelf)
+        if(!inTransition)
         {
-            if(navigations == Vector2.left)
+            if(itemPanel.activeSelf)
             {
-                if(panelTextIndex-1 >= 0)
+                if(navigations == Vector2.left)
                 {
-                    panelTextIndex--;
-                    panelText.text = itemInView.itemInteractText[panelTextIndex];
+                    if(panelTextIndex-1 >= 0)
+                    {
+                        panelTextIndex--;
+                        panelText.text = itemInView.itemInteractText[panelTextIndex];
+                    }
+                }
+                else if(navigations == Vector2.right)
+                {
+                    if(panelTextIndex+1 < itemInView.itemInteractText.Count())
+                    {
+                        panelTextIndex++;
+                        panelText.text = itemInView.itemInteractText[panelTextIndex];
+                    }
                 }
             }
-            else if(navigations == Vector2.right)
+        }
+        
+    }
+
+    public void Submit()
+    {
+        if(!inTransition)
+        {
+            if(itemPanel.activeSelf)
             {
-                if(panelTextIndex+1 < itemInView.itemInteractText.Count())
+                if(panelTextIndex == itemInView.itemInteractText.Count()-1)
+                {
+                    LeaveItemView();
+                }
+                else
                 {
                     panelTextIndex++;
                     panelText.text = itemInView.itemInteractText[panelTextIndex];
@@ -144,27 +175,14 @@ public class CanvaManager : MonoBehaviour
         }
     }
 
-    public void Submit()
+    public void Cancel()
     {
-        if(itemPanel.activeSelf)
+        if(!inTransition)
         {
-            if(panelTextIndex == itemInView.itemInteractText.Count()-1)
+            if(itemPanel.activeSelf)
             {
                 LeaveItemView();
             }
-            else
-            {
-                panelTextIndex++;
-                panelText.text = itemInView.itemInteractText[panelTextIndex];
-            }
-        }
-    }
-
-    public void Cancel()
-    {
-        if(itemPanel.activeSelf)
-        {
-            LeaveItemView();
         }
     }
 }
