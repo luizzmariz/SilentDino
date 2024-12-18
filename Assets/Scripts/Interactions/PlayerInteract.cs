@@ -65,7 +65,6 @@ public class PlayerInteract : MonoBehaviour
         }
         else
         {
-            Debug.Log("gg");
             this.interactable = null;
         }
     }
