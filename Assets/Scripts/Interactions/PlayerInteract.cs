@@ -26,6 +26,10 @@ public class PlayerInteract : MonoBehaviour
         {
             CheckInteractability(hitInfo);
         } 
+        else
+        {
+            SetInteractable(null);
+        }
     }
 
     void CheckInteractability(RaycastHit hitInfo)
@@ -53,11 +57,11 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    void SetInteractable(Interactable interactable)
+    void SetInteractable(Interactable _interactable)
     {
-        if(interactable != null)
+        if(_interactable != null)
         {
-            this.interactable = interactable; 
+            this.interactable = _interactable; 
         }
         else
         {

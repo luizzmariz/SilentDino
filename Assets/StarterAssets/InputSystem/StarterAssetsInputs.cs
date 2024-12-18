@@ -21,7 +21,7 @@ namespace StarterAssets
 		public bool cursorInputForLook = true;
 
 #if ENABLE_INPUT_SYSTEM
-		public void OnMove(InputValue value)
+		public void OnMove(InputValue value )
 		{
 			MoveInput(value.Get<Vector2>());
 		}
@@ -50,6 +50,18 @@ namespace StarterAssets
 			{
 				GetComponent<PlayerInteract>().Interact();
 			}
+		}
+
+		public void OnNavigate(InputValue value)
+		{
+			Debug.Log("fff");
+			
+		}
+
+		public void OnSubmit(InputValue value)
+		{
+			Debug.Log("ggg");
+			
 		}
 #endif
 

@@ -253,6 +253,18 @@ namespace StarterAssets
 			return Mathf.Clamp(lfAngle, lfMin, lfMax);
 		}
 
+		// public void SwitchToUiActionmap()
+		// {
+		// 	_playerInput.SwitchCurrentActionMap("UI");
+		// 	_playerInput.defaultActionMap = "UI";
+		// }
+
+		// public void SwitchToPlayerDefaultActionmap()
+		// {
+		// 	_playerInput.SwitchCurrentActionMap("Player");
+		// 	_playerInput.defaultActionMap = "Player";
+		// }
+
 		public void DisableDefaultPlayerActions()
 		{
 			_playerInput.actions.FindActionMap("Player").Disable();
@@ -262,6 +274,16 @@ namespace StarterAssets
 		{
 			_playerInput.actions.FindActionMap("Player").Enable();
 		}
+
+		// public void DisableUIActions()
+		// {
+		// 	_playerInput.actions.FindActionMap("UI").Disable();
+		// }
+
+		// public void EnableUIActions()
+		// {
+		// 	_playerInput.actions.FindActionMap("UI").Enable();
+		// }
 
 		private void OnDrawGizmosSelected()
 		{

@@ -736,6 +736,7 @@ GameObject:
   - component: {fileID: 88395360}
   - component: {fileID: 88395359}
   - component: {fileID: 88395358}
+  - component: {fileID: 88395363}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -755,10 +756,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a44f0e38cb8da8459a4cde5c1cb5541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 2134296785}
+  itemPanel: {fileID: 2134296785}
   panelText: {fileID: 955069451}
+  panelTextIndex: 0
   panelImage: {fileID: 1620035807}
   playerController: {fileID: 1809660446}
+  _UIController: {fileID: 0}
 --- !u!114 &88395359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +848,149 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &88395363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88395357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c549bff8c18ea8478065c84314a7c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Navigate:
+    m_Name: Navigate
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8b99d2c3-2b47-4c25-8351-c5679249c12d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 79415e94-83fc-4210-8356-b7ed07ef4ee5
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 15835b9c-2e89-4a9a-a4a9-106c26b2a0a0
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    - m_Name: up
+      m_Id: d5ad96cc-0060-4299-a41f-31d000be3d86
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    - m_Name: down
+      m_Id: bfc95f1a-583d-4a3c-8a8e-1f83e8addacd
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    - m_Name: down
+      m_Id: acc5c755-1da2-41f3-a8f0-2c4fa3f8ca9a
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 15e31408-d363-4845-94db-b3bf13e30a6e
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 98e1fc3f-ba83-4c61-aa7b-ffaf8e2c9d53
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 1ba7ae9c-3b31-459b-b9ee-bc4828fbf6c5
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 1c51481a-2725-4a0f-9cef-85bcb4904925
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    m_Flags: 0
+  Submit:
+    m_Name: Submit
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: bd4161cf-a2ec-48cc-98b6-6646c61fc318
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b0fd806a-cc98-45f7-8ee5-314a81083243
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Submit
+      m_Flags: 0
+    - m_Name: 
+      m_Id: aba581ab-1a89-4195-b78b-19ab267d5e85
+      m_Path: <Keyboard>/enter
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Submit
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 6407ec76-5ec1-45b0-a6eb-78f8c5b34997
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Submit
+      m_Flags: 0
+    m_Flags: 0
+  Cancel:
+    m_Name: Cancel
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f46fde8d-0414-4f53-a119-26c7275545ca
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7a4e82c2-46e8-4d2c-94d6-59ae1ed5a529
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Cancel
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &120316523
 GameObject:
   m_ObjectHideFlags: 0
@@ -6044,7 +6190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 846385753}
   m_Layer: 0
-  m_Name: NestedParent_Unpack
+  m_Name: Plater_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12260,9 +12406,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: InputMove
+      - m_Target: {fileID: 1809660450}
+        m_TargetAssemblyTypeName: StarterAssets.StarterAssetsInputs, Assembly-CSharp
+        m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12276,9 +12422,9 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: InputLook
+      - m_Target: {fileID: 1809660450}
+        m_TargetAssemblyTypeName: StarterAssets.StarterAssetsInputs, Assembly-CSharp
+        m_MethodName: OnLook
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12323,9 +12469,73 @@ MonoBehaviour:
     m_ActionId: 980e881e-182c-404c-8cbf-3d09fdb48fef
     m_ActionName: 'Player/Sprint[/Keyboard/leftShift,/XInputControllerWindows/leftTrigger]'
   - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1809660450}
+        m_TargetAssemblyTypeName: StarterAssets.StarterAssetsInputs, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6406faa3-5cbf-4f23-8afd-abb3d1860e3d
+    m_ActionName: 'Player/Interact[/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1809660450}
+        m_TargetAssemblyTypeName: StarterAssets.StarterAssetsInputs, Assembly-CSharp
+        m_MethodName: OnNavigate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 57aed25e-d951-49c4-858e-11e59435e449
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: e4ce1614-c754-48c1-9103-33130441661f
-    m_ActionName: UI/New action
+    m_ActionId: a13195e0-fc27-477b-9f06-f6bca2258bfb
+    m_ActionName: 'UI/Submit[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c86ea49c-4e83-4728-99f2-16693c32ce37
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e438c9cc-3a80-42b8-8347-97a3281aaa7a
+    m_ActionName: 'UI/Point[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7b7edd8b-7a5b-4dbd-aa82-9a141c948b9a
+    m_ActionName: 'UI/Click[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c1b63f9b-0383-432d-a3e2-e3b5d4b1c610
+    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b4be9e68-bddd-4a5c-a9a1-dc998bd1802b
+    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c249d1ba-378a-4059-84e9-381601c966c9
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e749bcff-4b2d-45fb-bd5e-37ddff64c156
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f644c2a1-6067-4c14-9707-24d3582b7d44
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -15203,7 +15413,7 @@ GameObject:
   - component: {fileID: 2065984635}
   - component: {fileID: 2065984634}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: CameraPixelatedResolutionImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16669,6 +16879,84 @@ PrefabInstance:
     - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
       propertyPath: interactableName
       value: "Ordem de Servi\xE7o"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: whenActivateEvent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: itemInteractText.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: 'itemInteractText.Array.data[0]'
+      value: "ORDEM DE SERVI\xC7O N.\xBA 327/1952\\n INSPE\xC7\xC3O NOS ESGOTOS DO
+        DISTRITO DE BLACKRIDGE\\n\\n  Data: 5 de setembro de 1952\\n Respons\xE1vel:
+        Eng. Harold M. Gaines\\n Emitente: Departamento de Infraestrutura\\n\\n  "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: 'itemInteractText.Array.data[1]'
+      value: "Objetivo:\\n Avaliar a condi\xE7\xE3o dos esgotos ap\xF3s os tremores
+        de 1\xBA de setembro.\\n Relatos incluem sons estranhos: grunhidos, arranh\xF5es
+        e gritos.\\n\\n  Servi\xE7os:\\n  Verificar rachaduras e danos estruturais.\\n
+        Mapear pontos cr\xEDticos em Miller Street e Carnegie Row.\\n Registrar sons
+        e movimenta\xE7\xF5es suspeitas.\\n\\n Seguran\xE7a:\\n  Uso obrigat\xF3rio
+        de capacete e colete.\\n Aten\xE7\xE3o a gases t\xF3xicos e inunda\xE7\xF5es.\\n
+        Recomenda-se portar arma para autodefesa.\\n\\n Prazo:\\n In\xEDcio: 2 de
+        setembro de 1952\\n Conclus\xE3o: 4 de setembro de 1952\\n\\n  Assinatura:
+        Harold M. Gaines\\n Engenheiro-Chefe  "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 88395358}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Teste
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Tefffff
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TesteAnisio, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CanvaManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209897578198935312, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7872721286095997548, guid: ae88ec273bfa8794694e37f247df5275, type: 3}
       propertyPath: m_Size.x
