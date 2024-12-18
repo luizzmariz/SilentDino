@@ -102,6 +102,7 @@ public class CanvaManager : MonoBehaviour
         yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
 
         ClosePanel();
+        itemInView.InteractionEnd();
         
         FadeScreen.instance.FadeOutScreen();
 
