@@ -3,16 +3,20 @@ using UnityEngine;
 using TMPro;
 using StarterAssets;
 using UnityEngine.UI;
+using System.Linq;
 
 public class CanvaManager : MonoBehaviour
 {
     public static CanvaManager instance = null;
 
-    public GameObject panel;
+    public GameObject itemPanel;
     public TMP_Text panelText;
+    public int panelTextIndex;
     public Image panelImage;
+    ItemInteractable itemInView;
 
     public FirstPersonController playerController;
+    public UIController _UIController;
 
     void Awake()
     {
@@ -25,17 +29,18 @@ public class CanvaManager : MonoBehaviour
 			Destroy(gameObject);
 		}
 
-        panel.SetActive(false);
+        itemPanel.SetActive(false);
+        _UIController = GetComponent<UIController>();
     }
 
     public void EnterItemView(ItemInteractable item)
     {
-        LockPlayerMovements();
+        DisablePlayerMovementsController();
 
         StartCoroutine(EnterItemViewTransition(item));
     }
 
-    void LockPlayerMovements()
+    void DisablePlayerMovementsController()
     {
         playerController.DisableDefaultPlayerActions();
     }
@@ -48,28 +53,46 @@ public class CanvaManager : MonoBehaviour
 
         ChangePanelContent(item);
         OpenPanel();
+        EnablePlayerUIController();
 
         FadeScreen.instance.FadeOutScreen();
 
-        yield return new WaitForSeconds(30); 
+        // yield return new WaitForSeconds(5); 
 
-        LeaveItemView();
+        // LeaveItemView();
     }
 
     void ChangePanelContent(ItemInteractable item)
     {
-        panelText.text = item.itemDescription;
+        itemInView = item;
+        if(item.itemInteractText.Count() > 0)
+        {
+            panelText.text = item.itemInteractText[0];
+            panelTextIndex = 0;
+        }
         panelImage.sprite = item.itemImage;
     }
 
     void OpenPanel()
     {
-        panel.SetActive(true);
+        itemPanel.SetActive(true);
+    }
+
+    void EnablePlayerUIController()
+    {
+        _UIController.EnableUIActions();
     }
 
     public void LeaveItemView()
     {
+        DisablePlayerUIController();
+
         StartCoroutine(LeaveItemViewTransition());
+    }
+
+    void DisablePlayerUIController()
+    {
+        _UIController.DisableUIActions();
     }
 
     IEnumerator LeaveItemViewTransition()
@@ -84,16 +107,63 @@ public class CanvaManager : MonoBehaviour
 
         yield return new WaitUntil(() => FadeScreen.instance.fadeOcurring == false);
 
-        UnlockPlayerMovements();
+        EnablePlayerMovementsController();
     }
 
     void ClosePanel()
     {
-        panel.SetActive(false);
+        itemPanel.SetActive(false);
     }
 
-    void UnlockPlayerMovements()
+    void EnablePlayerMovementsController()
     {
         playerController.EnableDefaultPlayerActions();
+    }
+
+    public void Navigate(Vector2 navigations)
+    {
+        if(itemPanel.activeSelf)
+        {
+            if(navigations == Vector2.left)
+            {
+                if(panelTextIndex-1 >= 0)
+                {
+                    panelTextIndex--;
+                    panelText.text = itemInView.itemInteractText[panelTextIndex];
+                }
+            }
+            else if(navigations == Vector2.right)
+            {
+                if(panelTextIndex+1 < itemInView.itemInteractText.Count())
+                {
+                    panelTextIndex++;
+                    panelText.text = itemInView.itemInteractText[panelTextIndex];
+                }
+            }
+        }
+    }
+
+    public void Submit()
+    {
+        if(itemPanel.activeSelf)
+        {
+            if(panelTextIndex == itemInView.itemInteractText.Count()-1)
+            {
+                LeaveItemView();
+            }
+            else
+            {
+                panelTextIndex++;
+                panelText.text = itemInView.itemInteractText[panelTextIndex];
+            }
+        }
+    }
+
+    public void Cancel()
+    {
+        if(itemPanel.activeSelf)
+        {
+            LeaveItemView();
+        }
     }
 }
