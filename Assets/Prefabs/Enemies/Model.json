@@ -1,0 +1,126 @@
+﻿{
+    "Model": {
+        "Version": "1.10.1822.1",
+        "Scene": {
+            "Name": true,
+            "SupportShaderSelect": true
+        },
+        "Export Directory": "D:/GameDev/SilentDinoAGORAVAI/Assets/Prefabs/Enemies",
+        "Object": {
+            "Model": {
+                "Generation": "AccuRig",
+                "Physics": {},
+                "Meshes": {
+                    "Cube_002": {
+                        "Materials": {
+                            "Default_01_Pbr_Pbr": {
+                                "Material Type": "Pbr",
+                                "MultiUV Index": 0,
+                                "Two Side": true,
+                                "Diffuse Color": [
+                                    255.0,
+                                    255.0,
+                                    255.0
+                                ],
+                                "Ambient Color": [
+                                    12.973380088806153,
+                                    12.973380088806153,
+                                    12.973380088806153
+                                ],
+                                "Specular Color": [
+                                    255.0,
+                                    255.0,
+                                    255.0
+                                ],
+                                "Opacity": 1.0,
+                                "Self Illumination": 0.0,
+                                "Textures": {}
+                            }
+                        }
+                    },
+                    "Cube_003": {
+                        "Materials": {
+                            "Default_Pbr_Pbr": {
+                                "Material Type": "Pbr",
+                                "MultiUV Index": 0,
+                                "Two Side": true,
+                                "Diffuse Color": [
+                                    255.0,
+                                    255.0,
+                                    255.0
+                                ],
+                                "Ambient Color": [
+                                    12.973380088806153,
+                                    12.973380088806153,
+                                    12.973380088806153
+                                ],
+                                "Specular Color": [
+                                    255.0,
+                                    255.0,
+                                    255.0
+                                ],
+                                "Opacity": 1.0,
+                                "Self Illumination": 0.0,
+                                "Textures": {}
+                            }
+                        }
+                    },
+                    "Cube_004": {
+                        "Materials": {
+                            "Default_00_Pbr_Pbr": {
+                                "Material Type": "Pbr",
+                                "MultiUV Index": 0,
+                                "Two Side": true,
+                                "Diffuse Color": [
+                                    255.0,
+                                    255.0,
+                                    255.0
+                                ],
+                                "Ambient Color": [
+                                    12.973380088806153,
+                                    12.973380088806153,
+                                    12.973380088806153
+                                ],
+                                "Specular Color": [
+                                    255.0,
+                                    255.0,
+                                    255.0
+                                ],
+                                "Opacity": 1.0,
+                                "Self Illumination": 0.0,
+                                "Textures": {}
+                            }
+                        }
+                    },
+                    "Cube_005": {
+                        "Materials": {
+                            "Material_001_Pbr": {
+                                "Material Type": "Pbr",
+                                "MultiUV Index": 0,
+                                "Two Side": true,
+                                "Diffuse Color": [
+                                    148.55484008789063,
+                                    0.0,
+                                    38.73347854614258
+                                ],
+                                "Ambient Color": [
+                                    12.973380088806153,
+                                    12.973380088806153,
+                                    12.973380088806153
+                                ],
+                                "Specular Color": [
+                                    148.55484008789063,
+                                    0.0,
+                                    38.73347854614258
+                                ],
+                                "Opacity": 1.0,
+                                "Self Illumination": 0.0,
+                                "Textures": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
