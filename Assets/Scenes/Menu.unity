@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 6914085}
   - component: {fileID: 6914084}
   - component: {fileID: 6914087}
+  - component: {fileID: 6914088}
   m_Layer: 5
   m_Name: Voltar
   m_TagString: Untagged
@@ -267,6 +268,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverTextColor: {r: 1, g: 0, b: 0, a: 1}
   normalTextColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &6914088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6914082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -891577462
+      Data2: 1197713884
+      Data3: 452761223
+      Data4: 119844865
+    Path: event:/menu/naomenu
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &42629966
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +468,8 @@ GameObject:
   - component: {fileID: 682051415}
   - component: {fileID: 682051414}
   - component: {fileID: 682051417}
+  - component: {fileID: 682051419}
+  - component: {fileID: 682051418}
   m_Layer: 5
   m_Name: HowToPlay
   m_TagString: Untagged
@@ -571,6 +605,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverTextColor: {r: 1, g: 0, b: 0, a: 1}
   normalTextColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &682051418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682051412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 1
+  UnloadEvent: 0
+  Banks:
+  - Master
+  CollisionTag: 
+  PreloadSamples: 0
+--- !u!114 &682051419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682051412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 81069493
+      Data2: 1328084915
+      Data3: 1417244588
+      Data4: 358672245
+    Path: event:/menu/simmenu
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1009620617
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,8 +664,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1009620620}
   - component: {fileID: 1009620619}
-  - component: {fileID: 1009620618}
   - component: {fileID: 1009620621}
+  - component: {fileID: 1009620622}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -590,14 +673,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1009620618
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009620617}
-  m_Enabled: 1
 --- !u!20 &1009620619
 Camera:
   m_ObjectHideFlags: 0
@@ -709,6 +784,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1009620622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009620617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1053970787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1446,7 @@ GameObject:
   - component: {fileID: 1657942766}
   - component: {fileID: 1657942765}
   - component: {fileID: 1657942768}
+  - component: {fileID: 1657942769}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -1492,6 +1582,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverTextColor: {r: 1, g: 0, b: 0, a: 1}
   normalTextColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1657942769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657942763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -891577462
+      Data2: 1197713884
+      Data3: 452761223
+      Data4: 119844865
+    Path: event:/menu/simmenu
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1868175964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,6 +1762,7 @@ GameObject:
   - component: {fileID: 1915156587}
   - component: {fileID: 1915156586}
   - component: {fileID: 1915156589}
+  - component: {fileID: 1915156590}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -1776,6 +1898,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverTextColor: {r: 1, g: 0, b: 0, a: 1}
   normalTextColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1915156590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915156584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 81069493
+      Data2: 1328084915
+      Data3: 1417244588
+      Data4: 358672245
+    Path: event:/menu/simmenu
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1966776403
 GameObject:
   m_ObjectHideFlags: 0

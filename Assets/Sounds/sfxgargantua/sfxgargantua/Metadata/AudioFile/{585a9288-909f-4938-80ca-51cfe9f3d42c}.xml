@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{585a9288-909f-4938-80ca-51cfe9f3d42c}">
+		<property name="assetPath">
+			<value>menu/som de confirmar.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.74458333333333337</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5163e5e2-67e6-4c28-9df8-107bbed53112}</destination>
+		</relationship>
+	</object>
+</objects>

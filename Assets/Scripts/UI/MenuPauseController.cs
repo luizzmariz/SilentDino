@@ -1,4 +1,7 @@
 using UnityEngine;
+using FMODUnity; // Importar FMOD Unity Integration
+using FMOD.Studio;
+using FMOD;
 
 public class MenuPauseController : MonoBehaviour
 {
@@ -7,6 +10,10 @@ public class MenuPauseController : MonoBehaviour
     public float fadeInSpeed = 4f;   // Velocidade para aparecer
     public float fadeOutSpeed = 4f;  // Velocidade para sumir
 
+    public EventReference menuOpen;
+    public EventReference menuClose;
+
+    public GameObject menu;
     private bool isMenuOpen = false;
     private float targetAlphaBlack = 0f; // Alpha alvo do fundo preto
     private float targetAlphaMenu = 0f;  // Alpha alvo do menu
@@ -41,10 +48,14 @@ public class MenuPauseController : MonoBehaviour
         {
             if (!isMenuOpen && currentStage == FadeStage.None)
             {
+                menu.SetActive(true);
                 AbrirMenu();
+                RuntimeManager.PlayOneShot(menuOpen);
             }
             else if (isMenuOpen && currentStage == FadeStage.None)
             {
+               
+                RuntimeManager.PlayOneShot(menuClose);
                 FecharMenu();
             }
         }
@@ -103,6 +114,7 @@ public class MenuPauseController : MonoBehaviour
                     blackBGCanvasGroup.interactable = false;
                     blackBGCanvasGroup.blocksRaycasts = false;
                     // Fundo sumiu, despausa o jogo
+                    menu.SetActive(false);
                     Time.timeScale = 1;
                     isMenuOpen = false;
                     currentStage = FadeStage.None;

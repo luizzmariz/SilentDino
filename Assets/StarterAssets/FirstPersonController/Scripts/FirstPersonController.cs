@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -275,15 +277,29 @@ namespace StarterAssets
 			_playerInput.actions.FindActionMap("Player").Enable();
 		}
 
-		// public void DisableUIActions()
-		// {
-		// 	_playerInput.actions.FindActionMap("UI").Disable();
-		// }
+        // public void DisableUIActions()
+        // {
+        // 	_playerInput.actions.FindActionMap("UI").Disable();
+        // }
 
-		// public void EnableUIActions()
-		// {
-		// 	_playerInput.actions.FindActionMap("UI").Enable();
-		// }
+        // public void EnableUIActions()
+        // {
+        // 	_playerInput.actions.FindActionMap("UI").Enable();
+        // }
+        public void ReducePlayerSpeed()
+        {
+            StartCoroutine(ReduceSpeedCoroutine());
+        }
+        private IEnumerator ReduceSpeedCoroutine()
+        {
+            float originalSpeed = MoveSpeed; // Salvar a velocidade original
+			float sprintSpeedOriginal = SprintSpeed;
+            MoveSpeed = 0f; // Reduzir a velocidade do jogador
+			SprintSpeed = 0F;
+            yield return new WaitForSeconds(5); // Esperar 5 segundos
+			SprintSpeed = sprintSpeedOriginal;
+            MoveSpeed = originalSpeed; // Restaurar a velocidade original
+        }
 
 		private void OnDrawGizmosSelected()
 		{

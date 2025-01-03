@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{02845626-ac6e-4873-86e3-1dfff7463811}">
+		<property name="assetPath">
+			<value>personagem principal/passospessoametal1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.57108333333333339</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5163e5e2-67e6-4c28-9df8-107bbed53112}</destination>
+		</relationship>
+	</object>
+</objects>

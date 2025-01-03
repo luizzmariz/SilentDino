@@ -1,0 +1,625 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9058825196227045908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/personagem principal/intera\xE7\xE3o/escotilhaenferrujada"
+  m_EditorClassIdentifier: 
+  Path: "event:/personagem principal/intera\xE7\xE3o/escotilhaenferrujada"
+  Guid:
+    Data1: 1063700003
+    Data2: 1299397514
+    Data3: 1998373301
+    Data4: 639598925
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8944260209036567750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/personagem principal/intera\xE7\xE3o/pegargarrafa"
+  m_EditorClassIdentifier: 
+  Path: "event:/personagem principal/intera\xE7\xE3o/pegargarrafa"
+  Guid:
+    Data1: -651478476
+    Data2: 1141641684
+    Data3: 1172213920
+    Data4: -801599450
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8269832172828510018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/personagem principal/intera\xE7\xE3o/portamtenferrujada"
+  m_EditorClassIdentifier: 
+  Path: "event:/personagem principal/intera\xE7\xE3o/portamtenferrujada"
+  Guid:
+    Data1: 932552052
+    Data2: 1218967524
+    Data3: 159180217
+    Data4: -1553968212
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8248100066941010461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/personagem principal/passos/passospessoametal
+  m_EditorClassIdentifier: 
+  Path: event:/personagem principal/passos/passospessoametal
+  Guid:
+    Data1: -882624849
+    Data2: 1307906422
+    Data3: 1930059416
+    Data4: -168046717
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8159952957812906142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/monstro/monstrofalalonga
+  m_EditorClassIdentifier: 
+  Path: event:/monstro/monstrofalalonga
+  Guid:
+    Data1: -463990371
+    Data2: 1130648750
+    Data3: -1349301323
+    Data4: -1766535047
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 7000
+  Length: 0
+--- !u!114 &-7979468118441144205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/monstro/rugidomonstro
+  m_EditorClassIdentifier: 
+  Path: event:/monstro/rugidomonstro
+  Guid:
+    Data1: -1870944611
+    Data2: 1121178889
+    Data3: -1937454683
+    Data4: 605985020
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7766829915799518256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/monstro/monstrobatendometal
+  m_EditorClassIdentifier: 
+  Path: event:/monstro/monstrobatendometal
+  Guid:
+    Data1: -1446349863
+    Data2: 1204703906
+    Data3: 1333443236
+    Data4: 470360641
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7644702704228562497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/monstro/monstrosaiagua
+  m_EditorClassIdentifier: 
+  Path: event:/monstro/monstrosaiagua
+  Guid:
+    Data1: -1485223513
+    Data2: 1149113519
+    Data3: 1318885770
+    Data4: 1935422173
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7371337338777971219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/menu/navegarmenu
+  m_EditorClassIdentifier: 
+  Path: event:/menu/navegarmenu
+  Guid:
+    Data1: 272675843
+    Data2: 1139920668
+    Data3: -528540002
+    Data4: -700181639
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6744298645568897233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/monstro/monstrofalacurta
+  m_EditorClassIdentifier: 
+  Path: event:/monstro/monstrofalacurta
+  Guid:
+    Data1: 560523451
+    Data2: 1252717519
+    Data3: -1787223390
+    Data4: -1725315019
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5975257910350538713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ambientesozinho/pedracaindoagua
+  m_EditorClassIdentifier: 
+  Path: event:/ambientesozinho/pedracaindoagua
+  Guid:
+    Data1: -1798815573
+    Data2: 1198157192
+    Data3: -981895260
+    Data4: -327103599
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 100
+  Length: 0
+--- !u!114 &-5682531021124836412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/personagem principal/passos/passospessoapedra
+  m_EditorClassIdentifier: 
+  Path: event:/personagem principal/passos/passospessoapedra
+  Guid:
+    Data1: 1017909927
+    Data2: 1160047391
+    Data3: 1610706848
+    Data4: -1091346107
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4686326245591966192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/monstro/passos/passosmonstroperto
+  m_EditorClassIdentifier: 
+  Path: event:/monstro/passos/passosmonstroperto
+  Guid:
+    Data1: 1041125349
+    Data2: 1328574712
+    Data3: 1611372210
+    Data4: -1208708929
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 100
+  Length: 0
+--- !u!114 &-2378607021565407536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/menu/naomenu
+  m_EditorClassIdentifier: 
+  Path: event:/menu/naomenu
+  Guid:
+    Data1: -891577462
+    Data2: 1197713884
+    Data3: 452761223
+    Data4: 119844865
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1884332313642199465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sounds/sfxgargantua/sfxgargantua/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638714515524989698
+  FileSizes:
+  - Name: Desktop
+    Value: 1818
+  Exists: 1
+--- !u!114 &-1476410548316785284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ambientesozinho/pedras caindo
+  m_EditorClassIdentifier: 
+  Path: event:/ambientesozinho/pedras caindo
+  Guid:
+    Data1: 1855973687
+    Data2: 1101743360
+    Data3: 1508760706
+    Data4: 104612724
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-275932092324871892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/monstro/passos/passomonstrolonge
+  m_EditorClassIdentifier: 
+  Path: event:/monstro/passos/passomonstrolonge
+  Guid:
+    Data1: 241524637
+    Data2: 1318182671
+    Data3: 2060847001
+    Data4: -1643851417
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 200
+  Length: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -1884332313642199465}
+  - {fileID: 502735698281480779}
+  EditorEvents:
+  - {fileID: -7371337338777971219}
+  - {fileID: -9058825196227045908}
+  - {fileID: -8944260209036567750}
+  - {fileID: -1476410548316785284}
+  - {fileID: -8269832172828510018}
+  - {fileID: -2378607021565407536}
+  - {fileID: 4798582198426000775}
+  - {fileID: -275932092324871892}
+  - {fileID: -7979468118441144205}
+  - {fileID: -5682531021124836412}
+  - {fileID: -5975257910350538713}
+  - {fileID: -8248100066941010461}
+  - {fileID: 2628612215450621390}
+  - {fileID: -7766829915799518256}
+  - {fileID: -4686326245591966192}
+  - {fileID: -8159952957812906142}
+  - {fileID: 2445566401659190309}
+  - {fileID: -7644702704228562497}
+  - {fileID: -6744298645568897233}
+  - {fileID: 2533753123698797449}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 502735698281480779}
+  StringsBanks:
+  - {fileID: -1884332313642199465}
+  cacheTime: 638714515524989698
+  cacheVersion: 131622
+--- !u!114 &502735698281480779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sounds/sfxgargantua/sfxgargantua/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638714515524959614
+  FileSizes:
+  - Name: Desktop
+    Value: 878720
+  Exists: 1
+--- !u!114 &2445566401659190309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/monstro/monstrobrabo
+  m_EditorClassIdentifier: 
+  Path: event:/monstro/monstrobrabo
+  Guid:
+    Data1: -1252438114
+    Data2: 1132950994
+    Data3: 772170676
+    Data4: -904766622
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 100
+  Length: 0
+--- !u!114 &2533753123698797449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/item/itemAmbience
+  m_EditorClassIdentifier: 
+  Path: event:/item/itemAmbience
+  Guid:
+    Data1: 252473172
+    Data2: 1325058501
+    Data3: -1812478032
+    Data4: 2145931461
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 32026
+--- !u!114 &2628612215450621390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/menu/simmenu
+  m_EditorClassIdentifier: 
+  Path: event:/menu/simmenu
+  Guid:
+    Data1: 81069493
+    Data2: 1328084915
+    Data3: 1417244588
+    Data4: 358672245
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4798582198426000775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/personagem principal/intera\xE7\xE3o/interagindopapel"
+  m_EditorClassIdentifier: 
+  Path: "event:/personagem principal/intera\xE7\xE3o/interagindopapel"
+  Guid:
+    Data1: 843862414
+    Data2: 1250521890
+    Data3: 1903527858
+    Data4: -1711048784
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

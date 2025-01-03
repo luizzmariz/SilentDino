@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using FMODUnity; // Importar FMOD Unity Integration
+using FMOD.Studio;
 
 public class InventarioController : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public class InventarioController : MonoBehaviour
     public GameObject leftArrow;  // Referência à seta esquerda
     public GameObject rightArrow; // Referência à seta direita
 
+    public EventReference nextSound;
+
     // Velocidade de rotação do item
     public float rotationSpeed = 20f;
 
@@ -30,6 +34,7 @@ public class InventarioController : MonoBehaviour
 
     void Update()
     {
+       
         // Navegação com A e D
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -60,6 +65,7 @@ public class InventarioController : MonoBehaviour
     {
         if (itens.Count == 0) return;
         indiceAtual = (indiceAtual + 1) % itens.Count;
+        RuntimeManager.PlayOneShot(nextSound);
         AtualizarInventario();
     }
 
@@ -67,6 +73,7 @@ public class InventarioController : MonoBehaviour
     {
         if (itens.Count == 0) return;
         indiceAtual = (indiceAtual - 1 + itens.Count) % itens.Count;
+        RuntimeManager.PlayOneShot(nextSound);
         AtualizarInventario();
     }
 

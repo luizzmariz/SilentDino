@@ -19,6 +19,16 @@ public class CanvaManager : MonoBehaviour
     public FirstPersonController playerController;
     public UIController _UIController;
 
+
+    void Start()
+    {
+        // Define o cursor como confinado dentro da janela
+        Cursor.lockState = CursorLockMode.Confined;
+
+        // Torna o cursor visível (se quiser esconder, use Cursor.visible = false)
+        Cursor.visible = true;
+    }
+
     void Awake()
     {
         if(instance == null) 

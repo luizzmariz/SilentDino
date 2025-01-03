@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal; // Ou HDRP, dependendo do seu pipeline
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
+using FMODUnity; // Biblioteca FMOD
 
 public class EnemyProximityEffect : MonoBehaviour
 {
@@ -9,34 +11,39 @@ public class EnemyProximityEffect : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Transform enemy;
     [SerializeField] private float maxDistance = 20f;
-    [SerializeField] private float lerpSpeed = 3f; // controle da suavidade
+    [SerializeField] private float gameOverDistance = 10f; // Distância para acionar o Game Over
+    [SerializeField] private float lerpSpeed = 3f;
 
     [Header("Overlay UI")]
-    [SerializeField] private CanvasGroup enemyOverlay; // imagem com CanvasGroup
+    [SerializeField] private CanvasGroup enemyOverlay;
+    [SerializeField] private Material overlayMaterial;
+    [SerializeField] private TMPro.TextMeshProUGUI gameOverText;
+    [SerializeField] private string menuSceneName = "MainMenu";
 
     [Header("Pós-Processamento")]
-    [SerializeField] private Volume postProcessVolume; // arraste seu Volume no Inspector
+    [SerializeField] private Volume postProcessVolume;
 
-    // Referências internas para efeitos:
+    [Header("FMOD")]
+    [SerializeField] private EventReference gameOverSound; // Referência pública para o som
+
     private ChromaticAberration chromaticAberration;
     private FilmGrain filmGrain;
 
-    // Valores máximos que você quer atingir
     [Header("Intensidade Máxima")]
     [Range(0f, 1f)] public float maxChromaticAberration = 1f;
     [Range(0f, 1f)] public float maxGrainIntensity = 0.5f;
     [Range(0f, 1f)] public float maxOverlayAlpha = 1f;
 
+    private bool gameOverTriggered = false;
+
     private void Start()
     {
-        // Tentar obter as referências ao ChromaticAberration e FilmGrain do volume
         if (postProcessVolume != null && postProcessVolume.profile != null)
         {
             postProcessVolume.profile.TryGet(out chromaticAberration);
             postProcessVolume.profile.TryGet(out filmGrain);
         }
 
-        // Certifique-se de iniciar sem efeito
         if (enemyOverlay != null)
         {
             enemyOverlay.alpha = 0f;
@@ -49,113 +56,102 @@ public class EnemyProximityEffect : MonoBehaviour
         {
             filmGrain.intensity.Override(0f);
         }
+
+        if (gameOverText != null)
+        {
+            gameOverText.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        // Calcula a distância
+        if (gameOverTriggered) return;
+
         float distance = Vector3.Distance(player.position, enemy.position);
 
-        // Normaliza no range [0,1], onde 0 = longe, 1 = muito próximo
-        // Aqui, se o inimigo estiver a maxDistance ou mais, o efeito será 0.
-        // Se estiver a 0 de distância, o efeito será 1.
+        // Atualiza o efeito visual com base na distância
         float proximityValue = 1 - Mathf.Clamp01(distance / maxDistance);
 
-        // Aplica lerp suave para cada parâmetro
-
-        // Overlay Alpha
         if (enemyOverlay != null)
         {
             float currentAlpha = enemyOverlay.alpha;
             float targetAlpha = proximityValue * maxOverlayAlpha;
-            float newAlpha = Mathf.Lerp(currentAlpha, targetAlpha, Time.deltaTime * lerpSpeed);
-            enemyOverlay.alpha = newAlpha;
+            enemyOverlay.alpha = Mathf.Lerp(currentAlpha, targetAlpha, Time.deltaTime * lerpSpeed);
         }
 
-        // Chromatic Aberration
         if (chromaticAberration != null)
         {
-            float currentCA = chromaticAberration.intensity.value;
-            float targetCA = proximityValue * maxChromaticAberration;
-            float newCA = Mathf.Lerp(currentCA, targetCA, Time.deltaTime * lerpSpeed);
-            chromaticAberration.intensity.Override(newCA);
+            chromaticAberration.intensity.Override(Mathf.Lerp(
+                chromaticAberration.intensity.value,
+                proximityValue * maxChromaticAberration,
+                Time.deltaTime * lerpSpeed
+            ));
         }
 
-        // Grain
         if (filmGrain != null)
         {
-            float currentGrain = filmGrain.intensity.value;
-            float targetGrain = proximityValue * maxGrainIntensity;
-            float newGrain = Mathf.Lerp(currentGrain, targetGrain, Time.deltaTime * lerpSpeed);
-            filmGrain.intensity.Override(newGrain);
+            filmGrain.intensity.Override(Mathf.Lerp(
+                filmGrain.intensity.value,
+                proximityValue * maxGrainIntensity,
+                Time.deltaTime * lerpSpeed
+            ));
+        }
+
+        // Passa o tempo não escalado para o material do shader
+        if (overlayMaterial != null)
+        {
+            overlayMaterial.SetFloat("_UnscaledTime", Time.unscaledTime);
+        }
+
+        // Aciona o Game Over se a distância for menor ou igual à distância limite
+        if (distance <= gameOverDistance)
+        {
+            TriggerGameOver();
         }
     }
 
-    // Chamando manualmente se quiser "forçar" um estado (por exemplo, algum trigger especial)
-    public void SetEffectsManually(float normalizedValue)
+    private void TriggerGameOver()
     {
-        // normalizedValue deve ser entre 0 e 1, 0 = sem efeito, 1 = máximo
+        gameOverTriggered = true;
+
+        // Pausa o tempo no jogo
+        Time.timeScale = 0f;
+
         if (enemyOverlay != null)
         {
-            float newAlpha = normalizedValue * maxOverlayAlpha;
-            enemyOverlay.alpha = newAlpha;
+            enemyOverlay.alpha = 1f;
+
+            // Adiciona o material no momento do Game Over
+            if (overlayMaterial != null)
+            {
+                enemyOverlay.GetComponent<Image>().material = overlayMaterial;
+            }
         }
 
-        if (chromaticAberration != null)
+        if (gameOverText != null)
         {
-            float newCA = normalizedValue * maxChromaticAberration;
-            chromaticAberration.intensity.Override(newCA);
+            gameOverText.gameObject.SetActive(true);
+            gameOverText.text = "Você Sucumbiu";
         }
 
-        if (filmGrain != null)
+        // Espaço para implementar o som do FMOD
+        if (!string.IsNullOrEmpty(gameOverSound.Path))
         {
-            float newGrain = normalizedValue * maxGrainIntensity;
-            filmGrain.intensity.Override(newGrain);
+            RuntimeManager.PlayOneShot(gameOverSound);
         }
+
+        StartCoroutine(GameOverSequence());
     }
 
-    // Exemplo de função que poderia ser chamada via trigger para "sumir" com o efeito
-    public void ClearEffectsSmoothly()
+    private System.Collections.IEnumerator GameOverSequence()
     {
-        StartCoroutine(ClearEffectsCoroutine());
-    }
+        // Pausa visual (mesmo com o jogo pausado)
+        yield return new WaitForSecondsRealtime(11.5f);
 
-    private System.Collections.IEnumerator ClearEffectsCoroutine()
-    {
-        float duration = 1f; // tempo para limpar
-        float timeElapsed = 0f;
+        // Restaura o tempo ao normal
+        Time.timeScale = 1f;
 
-        // Captura valores atuais
-        float startAlpha = enemyOverlay != null ? enemyOverlay.alpha : 0f;
-        float startCA = chromaticAberration != null ? chromaticAberration.intensity.value : 0f;
-        float startGrain = filmGrain != null ? filmGrain.intensity.value : 0f;
-
-        while (timeElapsed < duration)
-        {
-            float t = timeElapsed / duration;
-
-            if (enemyOverlay != null)
-            {
-                enemyOverlay.alpha = Mathf.Lerp(startAlpha, 0f, t);
-            }
-
-            if (chromaticAberration != null)
-            {
-                chromaticAberration.intensity.Override(Mathf.Lerp(startCA, 0f, t));
-            }
-
-            if (filmGrain != null)
-            {
-                filmGrain.intensity.Override(Mathf.Lerp(startGrain, 0f, t));
-            }
-
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        // Ao final, zera tudo
-        if (enemyOverlay != null) enemyOverlay.alpha = 0f;
-        if (chromaticAberration != null) chromaticAberration.intensity.Override(0f);
-        if (filmGrain != null) filmGrain.intensity.Override(0f);
+        // Carrega a cena do menu
+        SceneManager.LoadScene(menuSceneName);
     }
 }

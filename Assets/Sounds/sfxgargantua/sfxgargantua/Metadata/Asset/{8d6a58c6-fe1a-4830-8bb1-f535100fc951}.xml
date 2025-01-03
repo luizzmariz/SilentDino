@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{8d6a58c6-fe1a-4830-8bb1-f535100fc951}">
+		<property name="assetPath">
+			<value>ambience(sons a distancia)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5163e5e2-67e6-4c28-9df8-107bbed53112}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -40,7 +40,20 @@ public class ItemInteractable : Interactable
 
     public override void Interact()
     {
-        if (hasCondition == true && inventarioController.BuscarItem(stringConditionName) == true)
+        if (hasCondition == true && inventarioController.BuscarItem(stringConditionName))
+        {
+            itemInteractText = itemInteractText.Concat(new string[] { foundItemText }).ToArray();
+        }
+        else if (whenActivateEvent == EventTriggerTime.begginingOfInteraction && interactionEvent != null)
+        {
+            interactionEvent.Invoke();
+        }
+        CanvaManager.instance.EnterItemView(this);
+    }
+
+    public void InteractionEnd()
+    {
+        if (hasCondition == true && inventarioController.BuscarItem(stringConditionName))
         {
             Debug.Log("ENTERED");
             itemInteractText = itemInteractText.Concat(new string[] { foundItemText }).ToArray();
@@ -52,16 +65,6 @@ public class ItemInteractable : Interactable
                 interactionEvent.Invoke();
             }
         }
-
-        else if (whenActivateEvent == EventTriggerTime.begginingOfInteraction && interactionEvent != null)
-        {
-            interactionEvent.Invoke();
-        }
-        CanvaManager.instance.EnterItemView(this);
-    }
-
-    public void InteractionEnd()
-    {
         if (whenActivateEvent == EventTriggerTime.endingOfInteraction && interactionEvent != null)
         {
             interactionEvent.Invoke();
