@@ -1,21 +1,121 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class SceneChanger : MonoBehaviour
 {
+    bool inTransition;
+
+    public GameObject introPanel;
+    public GameObject introSequence;
+
+    public GameObject FadePanel;
+
+    [SerializeField] InputAction Submit;
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        if(SceneManager.GetActiveScene().name == "Menu")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        introPanel.SetActive(false);
+        FadePanel.SetActive(false);
     }
-    // Função para carregar uma cena pelo nome
+    // Funï¿½ï¿½o para carregar uma cena pelo nome
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        if(sceneName == "Stage1")
+        {
+            FadePanel.SetActive(true);
+            StartCoroutine(EnterCutsceneTransition());
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 
-    // Função para sair do jogo
+    IEnumerator EnterCutsceneTransition()
+    {
+        inTransition = true;
+
+        FadeScreen.instance.FadeInScreen();
+
+        yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
+
+        ActivateIntroCutscenePanel();
+
+        FadeScreen.instance.FadeOutScreen();
+
+        yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == false);
+
+        inTransition = false;
+
+        StartCoroutine(StartIntroAnimation());
+    }
+
+    void ActivateIntroCutscenePanel()
+    {
+        introPanel.SetActive(true);
+
+        Submit.Enable();
+        Submit.performed += context => SkipIntro(context);
+    }
+
+    IEnumerator StartIntroAnimation()
+    {
+        float Ycord = introSequence.GetComponent<RectTransform>().anchoredPosition.y;
+
+        while(Ycord < 990f)
+        {
+            Ycord+=1;
+            introSequence.GetComponent<RectTransform>().anchoredPosition = new Vector3(introSequence.GetComponent<RectTransform>().anchoredPosition.x, Ycord);
+
+            yield return new WaitForNextFrameUnit();
+        }
+
+        if(!inTransition)
+        {
+            StartCoroutine(LeaveCutsceneTransition());
+        }
+    }
+
+    // Funï¿½ï¿½o para sair pular a introduÃ§Ã£o
+    void SkipIntro(InputAction.CallbackContext context)
+    {
+        if(!inTransition)
+        {
+            StopAllCoroutines();
+
+            StartCoroutine(LeaveCutsceneTransition());
+        }        
+    }
+
+    // Funï¿½ï¿½o para sair da cutscene de introduÃ§Ã£o
+    IEnumerator LeaveCutsceneTransition()
+    {
+        Submit.Disable();
+        Submit.performed -= context => SkipIntro(context);
+        inTransition = true;
+
+        FadeScreen.instance.FadeInScreen();
+
+        yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
+
+        inTransition = false;
+
+        SceneManager.LoadScene("Stage1");
+    }
+
+    // Funï¿½ï¿½o para sair do jogo
     public void QuitGame()
     {
 #if UNITY_EDITOR
