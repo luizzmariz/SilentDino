@@ -683,6 +683,7 @@ GameObject:
   - component: {fileID: 682051417}
   - component: {fileID: 682051419}
   - component: {fileID: 682051418}
+  - component: {fileID: 682051420}
   m_Layer: 5
   m_Name: HowToPlay
   m_TagString: Untagged
@@ -708,7 +709,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 640, y: 120}
+  m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682051414
 MonoBehaviour:
@@ -867,6 +868,37 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &682051420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682051412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 272675843
+      Data2: 1139920668
+      Data3: -528540002
+      Data4: -700181639
+    Path: event:/menu/navegarmenu
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &755108658
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,6 +970,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755108658}
+  m_CullTransparentMesh: 1
+--- !u!1 &941145600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 941145601}
+  - component: {fileID: 941145603}
+  - component: {fileID: 941145602}
+  m_Layer: 5
+  m_Name: BLACKSCREEN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &941145601
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941145600}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1966776404}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &941145602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941145600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &941145603
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941145600}
   m_CullTransparentMesh: 1
 --- !u!1 &1009620617
 GameObject:
@@ -1094,6 +1201,7 @@ GameObject:
   - component: {fileID: 1053970788}
   - component: {fileID: 1053970790}
   - component: {fileID: 1053970789}
+  - component: {fileID: 1053970791}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1120,7 +1228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24.723816, y: -6.810486}
+  m_AnchoredPosition: {x: -24.723877, y: -6.810486}
   m_SizeDelta: {x: 187.0664, y: 112.2799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1053970789
@@ -1161,6 +1269,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053970787}
   m_CullTransparentMesh: 1
+--- !u!114 &1053970791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053970787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 252473172
+      Data2: 1325058501
+      Data3: -1812478032
+      Data4: 2145931461
+    Path: event:/item/itemAmbience
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1084057374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1984,7 @@ GameObject:
   - component: {fileID: 1657942765}
   - component: {fileID: 1657942768}
   - component: {fileID: 1657942769}
+  - component: {fileID: 1657942770}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -1870,7 +2010,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -200}
-  m_SizeDelta: {x: 640, y: 120}
+  m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1657942765
 MonoBehaviour:
@@ -1995,13 +2135,44 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -891577462
-      Data2: 1197713884
-      Data3: 452761223
-      Data4: 119844865
+      Data1: 81069493
+      Data2: 1328084915
+      Data3: 1417244588
+      Data4: 358672245
     Path: event:/menu/simmenu
   Event: 
   EventPlayTrigger: 19
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1657942770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657942763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 272675843
+      Data2: 1139920668
+      Data3: -528540002
+      Data4: -700181639
+    Path: event:/menu/navegarmenu
+  Event: 
+  EventPlayTrigger: 17
   EventStopTrigger: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -2161,6 +2332,7 @@ GameObject:
   - component: {fileID: 1915156586}
   - component: {fileID: 1915156589}
   - component: {fileID: 1915156590}
+  - component: {fileID: 1915156591}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -2186,7 +2358,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 640, y: 120}
+  m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1915156586
 MonoBehaviour:
@@ -2327,6 +2499,37 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1915156591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915156584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 272675843
+      Data2: 1139920668
+      Data3: -528540002
+      Data4: -700181639
+    Path: event:/menu/navegarmenu
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1966776403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,6 +2565,7 @@ RectTransform:
   - {fileID: 1053970788}
   - {fileID: 1209775501}
   - {fileID: 65097814}
+  - {fileID: 941145601}
   - {fileID: 1545019787}
   - {fileID: 630529497}
   m_Father: {fileID: 1009620620}
@@ -2448,7 +2652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introPanel: {fileID: 65097813}
   introSequence: {fileID: 755108658}
-  FadePanel: {fileID: 1545019786}
+  blackScreen: {fileID: 941145600}
+  fadePanel: {fileID: 1545019786}
   Submit:
     m_Name: Submit
     m_Type: 0

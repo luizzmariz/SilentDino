@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class SceneChanger : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class SceneChanger : MonoBehaviour
     public GameObject introPanel;
     public GameObject introSequence;
 
-    public GameObject FadePanel;
+    public GameObject blackScreen;
+    public GameObject fadePanel;
 
     [SerializeField] InputAction Submit;
 
@@ -24,14 +26,14 @@ public class SceneChanger : MonoBehaviour
         }
 
         introPanel.SetActive(false);
-        FadePanel.SetActive(false);
+        fadePanel.SetActive(false);
     }
     // Fun��o para carregar uma cena pelo nome
     public void LoadScene(string sceneName)
     {
         if(sceneName == "Stage1")
         {
-            FadePanel.SetActive(true);
+            fadePanel.SetActive(true);
             StartCoroutine(EnterCutsceneTransition());
 
             Cursor.lockState = CursorLockMode.Locked;
@@ -57,6 +59,7 @@ public class SceneChanger : MonoBehaviour
 
         yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == false);
 
+        fadePanel.SetActive(false);
         inTransition = false;
 
         StartCoroutine(StartIntroAnimation());
@@ -76,7 +79,7 @@ public class SceneChanger : MonoBehaviour
 
         while(Ycord < 990f)
         {
-            Ycord+=1;
+            Ycord+=0.25f;
             introSequence.GetComponent<RectTransform>().anchoredPosition = new Vector3(introSequence.GetComponent<RectTransform>().anchoredPosition.x, Ycord);
 
             yield return new WaitForNextFrameUnit();
@@ -102,6 +105,8 @@ public class SceneChanger : MonoBehaviour
     // Fun��o para sair da cutscene de introdução
     IEnumerator LeaveCutsceneTransition()
     {
+        fadePanel.SetActive(true);
+
         Submit.Disable();
         Submit.performed -= context => SkipIntro(context);
         inTransition = true;
@@ -110,7 +115,12 @@ public class SceneChanger : MonoBehaviour
 
         yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
 
+        fadePanel.SetActive(false);
+
+        blackScreen.SetActive(true);
+
         inTransition = false;
+
 
         SceneManager.LoadScene("Stage1");
     }
