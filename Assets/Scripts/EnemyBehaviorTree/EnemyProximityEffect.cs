@@ -135,10 +135,8 @@ public class EnemyProximityEffect : MonoBehaviour
         }
 
         // Espaço para implementar o som do FMOD
-        if (!string.IsNullOrEmpty(gameOverSound.Path))
-        {
-            RuntimeManager.PlayOneShot(gameOverSound);
-        }
+
+        RuntimeManager.PlayOneShot(gameOverSound);
 
         StartCoroutine(GameOverSequence());
     }
