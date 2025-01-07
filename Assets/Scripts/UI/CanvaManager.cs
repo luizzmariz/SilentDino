@@ -23,10 +23,10 @@ public class CanvaManager : MonoBehaviour
     void Start()
     {
         // Define o cursor como confinado dentro da janela
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
 
-        // Torna o cursor visível (se quiser esconder, use Cursor.visible = false)
-        Cursor.visible = true;
+        // Torna o cursor visï¿½vel (se quiser esconder, use Cursor.visible = false)
+        Cursor.visible = false;
     }
 
     void Awake()
