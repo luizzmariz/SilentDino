@@ -683,6 +683,7 @@ GameObject:
   - component: {fileID: 682051417}
   - component: {fileID: 682051419}
   - component: {fileID: 682051418}
+  - component: {fileID: 682051420}
   m_Layer: 5
   m_Name: HowToPlay
   m_TagString: Untagged
@@ -867,6 +868,37 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &682051420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682051412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 272675843
+      Data2: 1139920668
+      Data3: -528540002
+      Data4: -700181639
+    Path: event:/menu/navegarmenu
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &755108658
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,14 +926,14 @@ RectTransform:
   m_GameObject: {fileID: 755108658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 65097814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -990}
+  m_AnchoredPosition: {x: 350, y: -1300}
   m_SizeDelta: {x: 1448, y: 2048}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755108660
@@ -1120,7 +1152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24.723816, y: -6.810486}
+  m_AnchoredPosition: {x: -24.723877, y: -6.810547}
   m_SizeDelta: {x: 187.0664, y: 112.2799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1053970789
@@ -1845,6 +1877,7 @@ GameObject:
   - component: {fileID: 1657942765}
   - component: {fileID: 1657942768}
   - component: {fileID: 1657942769}
+  - component: {fileID: 1657942770}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -2011,6 +2044,37 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1657942770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657942763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 272675843
+      Data2: 1139920668
+      Data3: -528540002
+      Data4: -700181639
+    Path: event:/menu/navegarmenu
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1868175964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2225,7 @@ GameObject:
   - component: {fileID: 1915156586}
   - component: {fileID: 1915156589}
   - component: {fileID: 1915156590}
+  - component: {fileID: 1915156591}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -2318,6 +2383,37 @@ MonoBehaviour:
     Path: event:/menu/simmenu
   Event: 
   EventPlayTrigger: 19
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1915156591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915156584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 272675843
+      Data2: 1139920668
+      Data3: -528540002
+      Data4: -700181639
+    Path: event:/menu/navegarmenu
+  Event: 
+  EventPlayTrigger: 17
   EventStopTrigger: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -2340,6 +2436,7 @@ GameObject:
   - component: {fileID: 1966776406}
   - component: {fileID: 1966776405}
   - component: {fileID: 1966776408}
+  - component: {fileID: 1966776409}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2447,8 +2544,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introPanel: {fileID: 65097813}
-  introSequence: {fileID: 755108658}
   FadePanel: {fileID: 1545019786}
+  introTheme:
+    Guid:
+      Data1: 1103405106
+      Data2: 1299000386
+      Data3: -1559310948
+      Data4: 2016181303
+    Path: event:/intro/Intro
   Submit:
     m_Name: Submit
     m_Type: 0
@@ -2466,6 +2569,47 @@ MonoBehaviour:
       m_Action: Submit
       m_Flags: 0
     m_Flags: 0
+--- !u!114 &1966776409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966776403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf00d2284cb1bf64c8f1927f5e44dbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comicPage: {fileID: 755108659}
+  positions:
+  - {x: 350, y: -1300, z: 0}
+  - {x: -350, y: -1300, z: 0}
+  - {x: -350, y: 0, z: 0}
+  - {x: 355, y: 0, z: 0}
+  - {x: 800, y: 1300, z: 0}
+  - {x: 800, y: 2200, z: 0}
+  - {x: -1450, y: 3250, z: 0}
+  - {x: -1450, y: 2200, z: 0}
+  scales:
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 3, y: 3, z: 3}
+  - {x: 3, y: 3, z: 3}
+  - {x: 4, y: 4, z: 4}
+  - {x: 4, y: 4, z: 4}
+  waitTimes:
+  - 0
+  - 20
+  - 1
+  - 14
+  - 4
+  - 8
+  - 1
+  - 10
+  moveSpeed: 0.1
 --- !u!1 &1978096985
 GameObject:
   m_ObjectHideFlags: 0
