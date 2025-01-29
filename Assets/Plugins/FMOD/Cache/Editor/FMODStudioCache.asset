@@ -334,9 +334,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/monstro/passos/passosmonstroperto
+  m_Name: event:/monstro/Passos/passosmonstroperto
   m_EditorClassIdentifier: 
-  Path: event:/monstro/passos/passosmonstroperto
+  Path: event:/monstro/Passos/passosmonstroperto
   Guid:
     Data1: 1041125349
     Data2: 1328574712
@@ -393,10 +393,10 @@ MonoBehaviour:
   Path: Assets/Sounds/sfxgargantua/sfxgargantua/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638720488829541057
+  lastModified: 638735724020476452
   FileSizes:
   - Name: Desktop
-    Value: 1918
+    Value: 1970
   Exists: 1
 --- !u!114 &-1476410548316785284
 MonoBehaviour:
@@ -435,9 +435,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/monstro/passos/passomonstrolonge
+  m_Name: event:/monstro/Passos/passomonstrolonge
   m_EditorClassIdentifier: 
-  Path: event:/monstro/passos/passomonstrolonge
+  Path: event:/monstro/Passos/passomonstrolonge
   Guid:
     Data1: 241524637
     Data2: 1318182671
@@ -490,12 +490,13 @@ MonoBehaviour:
   - {fileID: 2533753123698797449}
   - {fileID: 5292074765995065467}
   - {fileID: 7024798177965931507}
+  - {fileID: 602169540007841199}
   EditorParameters: []
   MasterBanks:
   - {fileID: 502735698281480779}
   StringsBanks:
   - {fileID: -1884332313642199465}
-  cacheTime: 638720488829541057
+  cacheTime: 638735724020476452
   cacheVersion: 131622
 --- !u!114 &502735698281480779
 MonoBehaviour:
@@ -512,11 +513,38 @@ MonoBehaviour:
   Path: Assets/Sounds/sfxgargantua/sfxgargantua/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638720488829457886
+  lastModified: 638735724020450534
   FileSizes:
   - Name: Desktop
-    Value: 1581920
+    Value: 1668864
   Exists: 1
+--- !u!114 &602169540007841199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/monstro/Proximity
+  m_EditorClassIdentifier: 
+  Path: event:/monstro/Proximity
+  Guid:
+    Data1: 2111772447
+    Data2: 1301213934
+    Data3: 316625305
+    Data4: -807146566
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 450
+  Length: 8045
 --- !u!114 &2445566401659190309
 MonoBehaviour:
   m_ObjectHideFlags: 0

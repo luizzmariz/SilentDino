@@ -8,11 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RoomBrickSmallWall
-  m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
+  m_Shader: {fileID: 4800000, guid: 266b24c9d002e3e42b7fea44b420fe82, type: 3}
   m_Parent: {fileID: 2100000, guid: b5a03e62f9bd4f14a872dfc135bd4a0c, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _UVMODE_AUTO
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -29,13 +30,21 @@ Material:
         m_Texture: {fileID: 2800000, guid: ede3929e70ac0714495d79baa7858647, type: 3}
         m_Scale: {x: 225, y: 150}
         m_Offset: {x: 0, y: 0}
+    - _BloodTex:
+        m_Texture: {fileID: 2800000, guid: cb9a0175dc1087a498c676ecc0fbd885, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: ede3929e70ac0714495d79baa7858647, type: 3}
-        m_Scale: {x: 225, y: 150}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _Blend: 0
+    - _DissolveThreshold: 0
+    - _FogDensityOverride: 4.98
+    m_Colors:
+    - _MainTexScale: {r: 0.2, g: 0.15, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3169255058193674627

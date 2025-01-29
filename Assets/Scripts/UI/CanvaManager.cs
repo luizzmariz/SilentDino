@@ -9,173 +9,190 @@ public class CanvaManager : MonoBehaviour
 {
     public static CanvaManager instance = null;
 
-    [Header("UI Elements")]
     public GameObject itemPanel;
     public TMP_Text panelText;
+    int panelTextIndex;
     public Image panelImage;
+    bool inTransition;
+    ItemInteractable itemInView;
 
-    [Header("Player Controllers")]
     public FirstPersonController playerController;
-    public UIController uiController;
+    public UIController _UIController;
 
-    private int panelTextIndex;
-    private bool inTransition;
-    private ItemInteractable itemInView;
-
-    void Awake()
-    {
-        // Singleton Pattern
-        if (instance == null)
-            instance = this;
-        else if (instance != this)
-            Destroy(gameObject);
-
-        itemPanel.SetActive(false);
-        inTransition = false;
-    }
 
     void Start()
     {
+        // Define o cursor como confinado dentro da janela
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Torna o cursor vis�vel (se quiser esconder, use Cursor.visible = false)
         Cursor.visible = false;
+    }
+
+    void Awake()
+    {
+        if(instance == null) 
+        {
+			instance = this;
+		} 
+        else if(instance != this) 
+        {
+			Destroy(gameObject);
+		}
+
+        itemPanel.SetActive(false);
+        _UIController = GetComponent<UIController>();
+        inTransition = false;
     }
 
     public void EnterItemView(ItemInteractable item)
     {
-        DisablePlayerControls();
-        StartCoroutine(EnterItemViewRoutine(item));
+        DisablePlayerMovementsController();
+
+        StartCoroutine(EnterItemViewTransition(item));
     }
 
-    private IEnumerator EnterItemViewRoutine(ItemInteractable item)
-    {
-        inTransition = true;
-
-        // Trigger Fade In Animation
-        FadeScreen.instance.FadeInScreen();
-        yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded);
-
-        // Pause the game after Fade In
-        Time.timeScale = 0;
-        Debug.Log("Jogo pausado.");
-
-        UpdatePanelContent(item);
-        itemPanel.SetActive(true);
-        EnableUIControls();
-
-        // Trigger Fade Out Animation
-        FadeScreen.instance.FadeOutScreen();
-        yield return new WaitUntil(() => !FadeScreen.instance.screenIsFaded);
-
-        inTransition = false;
-    }
-
-    public void LeaveItemView()
-    {
-        if (!inTransition)
-        {
-            DisableUIControls();
-            StartCoroutine(LeaveItemViewRoutine());
-        }
-    }
-
-    private IEnumerator LeaveItemViewRoutine()
-    {
-        inTransition = true;
-
-        // Trigger Fade In Animation
-        FadeScreen.instance.FadeInScreen();
-        yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded);
-
-        // Close Panel and Resume Game
-        itemPanel.SetActive(false);
-        Time.timeScale = 1;
-        Debug.Log("Jogo retomado.");
-
-        itemInView?.InteractionEnd();
-        EnablePlayerControls();
-
-        // Trigger Fade Out Animation
-        FadeScreen.instance.FadeOutScreen();
-        yield return new WaitUntil(() => !FadeScreen.instance.screenIsFaded);
-
-        inTransition = false;
-    }
-
-    private void UpdatePanelContent(ItemInteractable item)
-    {
-        itemInView = item;
-
-        if (item.itemInteractText != null && item.itemInteractText.Any())
-        {
-            panelText.text = item.itemInteractText[0];
-            panelTextIndex = 0;
-        }
-        else
-        {
-            panelText.text = string.Empty;
-        }
-
-        panelImage.sprite = item.itemImage;
-    }
-
-    private void DisablePlayerControls()
+    void DisablePlayerMovementsController()
     {
         playerController.DisableDefaultPlayerActions();
     }
 
-    private void EnablePlayerControls()
+    IEnumerator EnterItemViewTransition(ItemInteractable item)
+    {
+        inTransition = true;
+
+        FadeScreen.instance.FadeInScreen();
+
+        yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
+
+        ChangePanelContent(item);
+        OpenPanel();
+        EnablePlayerUIController();
+
+        FadeScreen.instance.FadeOutScreen();
+
+        yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == false);
+
+        inTransition = false;
+    }
+
+    void ChangePanelContent(ItemInteractable item)
+    {
+        itemInView = item;
+        if(item.itemInteractText.Count() > 0)
+        {
+            panelText.text = item.itemInteractText[0];
+            panelTextIndex = 0;
+        }
+        panelImage.sprite = item.itemImage;
+    }
+
+    void OpenPanel()
+    {
+        itemPanel.SetActive(true);
+    }
+
+    void EnablePlayerUIController()
+    {
+        _UIController.EnableUIActions();
+    }
+
+    public void LeaveItemView()
+    {
+        DisablePlayerUIController();
+
+        StartCoroutine(LeaveItemViewTransition());
+    }
+
+    void DisablePlayerUIController()
+    {
+        _UIController.DisableUIActions();
+    }
+
+    IEnumerator LeaveItemViewTransition()
+    {
+        inTransition = true;
+
+        FadeScreen.instance.FadeInScreen();
+
+        yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
+
+        ClosePanel();
+        itemInView.InteractionEnd();
+        
+        FadeScreen.instance.FadeOutScreen();
+
+        yield return new WaitUntil(() => FadeScreen.instance.fadeOcurring == false);
+
+        EnablePlayerMovementsController();
+
+        inTransition = false;
+    }
+
+    void ClosePanel()
+    {
+        itemPanel.SetActive(false);
+    }
+
+    void EnablePlayerMovementsController()
     {
         playerController.EnableDefaultPlayerActions();
     }
 
-    private void EnableUIControls()
+    public void Navigate(Vector2 navigations)
     {
-        uiController.EnableUIActions();
-    }
-
-    private void DisableUIControls()
-    {
-        uiController.DisableUIActions();
-    }
-
-    public void Navigate(Vector2 navigation)
-    {
-        if (!inTransition && itemPanel.activeSelf)
+        if(!inTransition)
         {
-            if (navigation == Vector2.left && panelTextIndex > 0)
+            if(itemPanel.activeSelf)
             {
-                panelTextIndex--;
-                panelText.text = itemInView.itemInteractText[panelTextIndex];
-            }
-            else if (navigation == Vector2.right && panelTextIndex < itemInView.itemInteractText.Count() - 1)
-            {
-                panelTextIndex++;
-                panelText.text = itemInView.itemInteractText[panelTextIndex];
+                if(navigations == Vector2.left)
+                {
+                    if(panelTextIndex-1 >= 0)
+                    {
+                        panelTextIndex--;
+                        panelText.text = itemInView.itemInteractText[panelTextIndex];
+                    }
+                }
+                else if(navigations == Vector2.right)
+                {
+                    if(panelTextIndex+1 < itemInView.itemInteractText.Count())
+                    {
+                        panelTextIndex++;
+                        panelText.text = itemInView.itemInteractText[panelTextIndex];
+                    }
+                }
             }
         }
+        
     }
 
     public void Submit()
     {
-        if (!inTransition && itemPanel.activeSelf)
+        if(!inTransition)
         {
-            if (panelTextIndex == itemInView.itemInteractText.Count() - 1)
+            if(itemPanel.activeSelf)
             {
-                LeaveItemView();
-            }
-            else
-            {
-                panelTextIndex++;
-                panelText.text = itemInView.itemInteractText[panelTextIndex];
+                if(panelTextIndex == itemInView.itemInteractText.Count()-1)
+                {
+                    LeaveItemView();
+                }
+                else
+                {
+                    panelTextIndex++;
+                    panelText.text = itemInView.itemInteractText[panelTextIndex];
+                }
             }
         }
     }
 
     public void Cancel()
     {
-        if (!inTransition && itemPanel.activeSelf)
+        if(!inTransition)
         {
-            LeaveItemView();
+            if(itemPanel.activeSelf)
+            {
+                LeaveItemView();
+            }
         }
     }
 }
