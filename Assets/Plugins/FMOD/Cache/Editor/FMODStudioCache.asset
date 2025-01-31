@@ -243,6 +243,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7345987099329484617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/sacrificial/sound
+  m_EditorClassIdentifier: 
+  Path: event:/sacrificial/sound
+  Guid:
+    Data1: -1135618644
+    Data2: 1141095863
+    Data3: -1113845874
+    Data4: 538421357
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 48039
 --- !u!114 &-6744298645568897233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,10 +420,10 @@ MonoBehaviour:
   Path: Assets/Sounds/sfxgargantua/sfxgargantua/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638735724020476452
+  lastModified: 638737676798744138
   FileSizes:
   - Name: Desktop
-    Value: 1970
+    Value: 2018
   Exists: 1
 --- !u!114 &-1476410548316785284
 MonoBehaviour:
@@ -491,12 +518,13 @@ MonoBehaviour:
   - {fileID: 5292074765995065467}
   - {fileID: 7024798177965931507}
   - {fileID: 602169540007841199}
+  - {fileID: -7345987099329484617}
   EditorParameters: []
   MasterBanks:
   - {fileID: 502735698281480779}
   StringsBanks:
   - {fileID: -1884332313642199465}
-  cacheTime: 638735724020476452
+  cacheTime: 638737676798744138
   cacheVersion: 131622
 --- !u!114 &502735698281480779
 MonoBehaviour:
@@ -513,10 +541,10 @@ MonoBehaviour:
   Path: Assets/Sounds/sfxgargantua/sfxgargantua/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638735724020450534
+  lastModified: 638737676798714094
   FileSizes:
   - Name: Desktop
-    Value: 1668864
+    Value: 2346112
   Exists: 1
 --- !u!114 &602169540007841199
 MonoBehaviour:
