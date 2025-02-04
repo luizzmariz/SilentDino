@@ -2,38 +2,36 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-using Unity.VisualScripting;
-using UnityEngine.UI;
+using FMODUnity;
 
 public class SceneChanger : MonoBehaviour
 {
-    bool inTransition;
-
     public GameObject introPanel;
-    public GameObject introSequence;
+    public GameObject FadePanel;
 
-    public GameObject blackScreen;
-    public GameObject fadePanel;
+    public EventReference introTheme;
 
     [SerializeField] InputAction Submit;
 
+    private bool inTransition;
+
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "Menu")
+        if (SceneManager.GetActiveScene().name == "Menu")
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
 
         introPanel.SetActive(false);
-        fadePanel.SetActive(false);
+        FadePanel.SetActive(false);
     }
-    // Fun��o para carregar uma cena pelo nome
+
     public void LoadScene(string sceneName)
     {
-        if(sceneName == "Stage1")
+        if (sceneName == "Stage1")
         {
-            fadePanel.SetActive(true);
+            FadePanel.SetActive(true);
             StartCoroutine(EnterCutsceneTransition());
 
             Cursor.lockState = CursorLockMode.Locked;
@@ -45,7 +43,7 @@ public class SceneChanger : MonoBehaviour
         }
     }
 
-    IEnumerator EnterCutsceneTransition()
+    private IEnumerator EnterCutsceneTransition()
     {
         inTransition = true;
 
@@ -59,73 +57,44 @@ public class SceneChanger : MonoBehaviour
 
         yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == false);
 
-        fadePanel.SetActive(false);
         inTransition = false;
 
-        StartCoroutine(StartIntroAnimation());
+        // Inicia a animação dos quadrinhos
+        GetComponent<ComicAnimator>().StartAnimation();
     }
 
-    void ActivateIntroCutscenePanel()
+    private void ActivateIntroCutscenePanel()
     {
         introPanel.SetActive(true);
-
+        RuntimeManager.PlayOneShot(introTheme);
         Submit.Enable();
-        Submit.performed += context => SkipIntro(context);
+        Submit.performed += SkipIntro;
     }
 
-    IEnumerator StartIntroAnimation()
+    private void SkipIntro(InputAction.CallbackContext context)
     {
-        float Ycord = introSequence.GetComponent<RectTransform>().anchoredPosition.y;
-
-        while(Ycord < 990f)
-        {
-            Ycord+=0.25f;
-            introSequence.GetComponent<RectTransform>().anchoredPosition = new Vector3(introSequence.GetComponent<RectTransform>().anchoredPosition.x, Ycord);
-
-            yield return new WaitForNextFrameUnit();
-        }
-
-        if(!inTransition)
-        {
-            StartCoroutine(LeaveCutsceneTransition());
-        }
-    }
-
-    // Fun��o para sair pular a introdução
-    void SkipIntro(InputAction.CallbackContext context)
-    {
-        if(!inTransition)
+        if (!inTransition)
         {
             StopAllCoroutines();
-
             StartCoroutine(LeaveCutsceneTransition());
-        }        
+        }
     }
 
-    // Fun��o para sair da cutscene de introdução
-    IEnumerator LeaveCutsceneTransition()
+    public IEnumerator LeaveCutsceneTransition()
     {
-        fadePanel.SetActive(true);
-
         Submit.Disable();
-        Submit.performed -= context => SkipIntro(context);
+        Submit.performed -= SkipIntro;
         inTransition = true;
 
         FadeScreen.instance.FadeInScreen();
 
         yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
 
-        fadePanel.SetActive(false);
-
-        blackScreen.SetActive(true);
-
         inTransition = false;
-
 
         SceneManager.LoadScene("Stage1");
     }
 
-    // Fun��o para sair do jogo
     public void QuitGame()
     {
 #if UNITY_EDITOR
