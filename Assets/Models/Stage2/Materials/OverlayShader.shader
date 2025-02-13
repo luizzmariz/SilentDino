@@ -1,4 +1,4 @@
-﻿Shader "Custom/BloodOverlayShader_Dissolve_FogAuto"
+﻿Shader "Custom/BloodOverlayShader_Darkness_Fog"
 {
     Properties
     {
@@ -6,6 +6,8 @@
         _BloodTex("Blood Texture", 2D) = "white" {}
         _DissolveTex("Dissolve Texture", 2D) = "gray" {}
         _Blend("Blend Amount", Range(0,1)) = 0
+        _Darkness("Darkness Factor", Range(0.6,1)) = 0.6
+        _EnableFog("Enable Fog? (0 = Off, 1 = On)", Float) = 0
         _MainTexScale("Base Texture Scale (X, Y)", Vector) = (1,1,0,0)
         _BloodScale("Blood Texture Scale (X, Y)", Vector) = (1,1,0,0)
         _DissolveScale("Dissolve Texture Scale", Float) = 1.0
@@ -39,13 +41,15 @@
                     float3 worldNormal : TEXCOORD1;
                     float2 localUV : TEXCOORD2;
                     float4 vertex : SV_POSITION;
-                    UNITY_FOG_COORDS(3) // Coordenação da névoa correta
+                    UNITY_FOG_COORDS(3)
                 };
 
                 sampler2D _MainTex;
                 sampler2D _BloodTex;
                 sampler2D _DissolveTex;
                 float _Blend;
+                float _Darkness;
+                float _EnableFog;
                 float _DissolveThreshold;
                 float _DissolveSoftness;
                 float _UseLocalUV;
@@ -62,9 +66,7 @@
                     o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
                     o.worldNormal = normalize(mul((float3x3)unity_ObjectToWorld, v.normal));
                     o.localUV = v.uv;
-
-                    UNITY_TRANSFER_FOG(o, o.vertex); // Passa a informação da névoa corretamente
-
+                    UNITY_TRANSFER_FOG(o, o.vertex);
                     return o;
                 }
 
@@ -101,22 +103,21 @@
                         }
                     }
 
-                    // Amostra texturas
                     fixed4 baseColor = tex2D(_MainTex, mainUV) * _MainColor;
                     fixed4 bloodColor = tex2D(_BloodTex, bloodUV) * _BloodColor;
 
-                    // Amostra noise do dissolve
                     float dissolve = tex2D(_DissolveTex, dissolveUV).r;
 
-                    // Suaviza a transição do sangue aparecendo
                     float dissolveEffect = smoothstep(_DissolveThreshold - _DissolveSoftness, _DissolveThreshold + _DissolveSoftness, dissolve);
                     float blendFactor = smoothstep(0, 1, _Blend) * dissolveEffect;
 
-                    // Aplica blending correto: parede → dissolve → sangue
                     fixed4 finalColor = lerp(baseColor, bloodColor, blendFactor);
+                    finalColor.rgb *= (1.0 - _Darkness);
 
-                    // **Aplica fog corretamente**
-                    UNITY_APPLY_FOG(i.fogCoord, finalColor);
+                    if (_EnableFog > 0.5)
+                    {
+                        UNITY_APPLY_FOG(i.fogCoord, finalColor);
+                    }
 
                     return finalColor;
                 }
@@ -124,4 +125,3 @@
             }
         }
 }
-

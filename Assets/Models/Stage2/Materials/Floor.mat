@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Floor
-  m_Shader: {fileID: 4800000, guid: 266b24c9d002e3e42b7fea44b420fe82, type: 3}
+  m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -32,7 +32,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -123,6 +124,7 @@ Material:
     - _ColorMode: 0
     - _Cull: 0
     - _Cutoff: 0.5
+    - _Darkness: 0.6
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DissolveScale: 0.1
@@ -135,6 +137,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EmissionEnabled: 0
+    - _EnableFog: 0
     - _EnvironmentReflections: 1
     - _FlipbookMode: 0
     - _FogDensityOverride: 4.9

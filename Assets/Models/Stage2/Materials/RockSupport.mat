@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RockSupport
-  m_Shader: {fileID: 4800000, guid: 266b24c9d002e3e42b7fea44b420fe82, type: 3}
+  m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -31,7 +31,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -72,7 +73,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: ede3929e70ac0714495d79baa7858647, type: 3}
-        m_Scale: {x: 1, y: 2}
+        m_Scale: {x: 100, y: 200}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -115,6 +116,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _Darkness: 0.6
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DissolveScale: 0.1
@@ -122,6 +124,7 @@ Material:
     - _DissolveThreshold: 0.09
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _EnableFog: 0
     - _EnvironmentReflections: 1
     - _FogDensityOverride: 1
     - _FogPower: 0.84

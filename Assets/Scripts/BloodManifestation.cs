@@ -22,7 +22,6 @@ public class BloodTransition : MonoBehaviour
 
     private void Start()
     {
-        StartDemanifestation();
     }
 
     public void StartManifestation()
