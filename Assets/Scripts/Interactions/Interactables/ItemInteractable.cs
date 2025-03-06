@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ItemInteractable : Interactable
 {
@@ -31,12 +32,10 @@ public class ItemInteractable : Interactable
         conditionMet
     }
 
-    // Backward-compatible fields (keep your existing Inspector setup)
     [Header("Legacy Event (Single Event)")]
     public EventTriggerTime whenActivateEvent;
     public UnityEvent interactionEvent;
 
-    // New system for multiple events
     [System.Serializable]
     public class EventEntry
     {
@@ -47,20 +46,27 @@ public class ItemInteractable : Interactable
     [Header("Multiple Events")]
     [SerializeField] private EventEntry[] eventEntries;
 
+    [Header("Escolha do Jogador")]
+    [SerializeField] private bool enableChoice = false;
+    [SerializeField] private GameObject choiceUI;
+    [SerializeField] private Button optionOneButton;
+    [SerializeField] private Button optionTwoButton;
+    [SerializeField] private UnityEvent optionOneEvent;
+    [SerializeField] private UnityEvent optionTwoEvent;
+    [SerializeField] private string defaultOptionText = "Escolha uma opção";
+
+    [SerializeField] private bool choiceShown = false;
+
     public override void Interact()
     {
-        // Check for condition at the start (e.g., key item)
         bool conditionMet = hasCondition && inventarioController.BuscarItem(stringConditionName);
 
-        // Trigger legacy event at the beginning if configured
         if (whenActivateEvent == EventTriggerTime.begginingOfInteraction && interactionEvent != null)
         {
             interactionEvent.Invoke();
         }
 
-        // Trigger new events at the beginning
         TriggerEvents(EventTriggerTime.begginingOfInteraction, conditionMet);
-
         CanvaManager.instance.EnterItemView(this);
     }
 
@@ -68,7 +74,6 @@ public class ItemInteractable : Interactable
     {
         bool conditionMet = hasCondition && inventarioController.BuscarItem(stringConditionName);
 
-        // Legacy event handling for ending/conditionMet
         if (whenActivateEvent == EventTriggerTime.endingOfInteraction && interactionEvent != null)
         {
             interactionEvent.Invoke();
@@ -79,9 +84,9 @@ public class ItemInteractable : Interactable
             interactionEvent.Invoke();
         }
 
-        // Trigger new events for ending/conditionMet
         TriggerEvents(EventTriggerTime.endingOfInteraction, conditionMet);
         TriggerEvents(EventTriggerTime.conditionMet, conditionMet);
+
     }
 
     private void TriggerEvents(EventTriggerTime triggerTime, bool conditionMet)
@@ -92,7 +97,6 @@ public class ItemInteractable : Interactable
         {
             if (entry.triggerTime == triggerTime)
             {
-                // For conditionMet, only trigger if the condition is actually met
                 if (triggerTime == EventTriggerTime.conditionMet && !conditionMet)
                 {
                     continue;
@@ -108,6 +112,49 @@ public class ItemInteractable : Interactable
         {
             hasGiven = true;
             inventarioController.AdicionarItem(item);
+        }
+    }
+
+    public void ShowChoice()
+    {
+        if (!enableChoice || choiceShown) return;
+
+        choiceShown = true;
+        if (choiceUI != null)
+        {
+            choiceUI.SetActive(true);
+
+            if (optionOneButton != null && optionTwoButton != null)
+            {
+                optionOneButton.onClick.RemoveAllListeners();
+                optionTwoButton.onClick.RemoveAllListeners();
+
+                optionOneButton.onClick.AddListener(() => SelectOption(true));
+                optionTwoButton.onClick.AddListener(() => SelectOption(false));
+            }
+            else
+            {
+                Debug.LogWarning("Os botões de escolha não estão atribuídos! Usando o texto padrão: " + defaultOptionText);
+            }
+        }
+    }
+
+    public void RevertChoice()
+    {
+        choiceShown = false;
+    }
+
+    private void SelectOption(bool isOptionOne)
+    {
+        choiceUI.SetActive(false);
+
+        if (isOptionOne)
+        {
+            optionOneEvent.Invoke();
+        }
+        else
+        {
+            optionTwoEvent.Invoke();
         }
     }
 }

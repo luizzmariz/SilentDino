@@ -10,6 +10,7 @@ public class CanvaManager : MonoBehaviour
     public static CanvaManager instance = null;
 
     public GameObject itemPanel;
+    public GameObject choiceUIPanel;
     public TMP_Text panelText;
     int panelTextIndex;
     public Image panelImage;
@@ -19,28 +20,25 @@ public class CanvaManager : MonoBehaviour
     public FirstPersonController playerController;
     public UIController _UIController;
 
-
     void Start()
     {
-        // Define o cursor como confinado dentro da janela
         Cursor.lockState = CursorLockMode.Locked;
-
-        // Torna o cursor visï¿½vel (se quiser esconder, use Cursor.visible = false)
         Cursor.visible = false;
     }
 
     void Awake()
     {
-        if(instance == null) 
+        if (instance == null)
         {
-			instance = this;
-		} 
-        else if(instance != this) 
+            instance = this;
+        }
+        else if (instance != this)
         {
-			Destroy(gameObject);
-		}
+            Destroy(gameObject);
+        }
 
         itemPanel.SetActive(false);
+        choiceUIPanel.SetActive(false);
         _UIController = GetComponent<UIController>();
         inTransition = false;
     }
@@ -48,7 +46,6 @@ public class CanvaManager : MonoBehaviour
     public void EnterItemView(ItemInteractable item)
     {
         DisablePlayerMovementsController();
-
         StartCoroutine(EnterItemViewTransition(item));
     }
 
@@ -62,7 +59,6 @@ public class CanvaManager : MonoBehaviour
         inTransition = true;
 
         FadeScreen.instance.FadeInScreen();
-
         yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
 
         ChangePanelContent(item);
@@ -70,7 +66,6 @@ public class CanvaManager : MonoBehaviour
         EnablePlayerUIController();
 
         FadeScreen.instance.FadeOutScreen();
-
         yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == false);
 
         inTransition = false;
@@ -79,7 +74,7 @@ public class CanvaManager : MonoBehaviour
     void ChangePanelContent(ItemInteractable item)
     {
         itemInView = item;
-        if(item.itemInteractText.Count() > 0)
+        if (item.itemInteractText.Count() > 0)
         {
             panelText.text = item.itemInteractText[0];
             panelTextIndex = 0;
@@ -100,7 +95,6 @@ public class CanvaManager : MonoBehaviour
     public void LeaveItemView()
     {
         DisablePlayerUIController();
-
         StartCoroutine(LeaveItemViewTransition());
     }
 
@@ -114,18 +108,15 @@ public class CanvaManager : MonoBehaviour
         inTransition = true;
 
         FadeScreen.instance.FadeInScreen();
-
         yield return new WaitUntil(() => FadeScreen.instance.screenIsFaded == true);
 
         ClosePanel();
         itemInView.InteractionEnd();
-        
-        FadeScreen.instance.FadeOutScreen();
 
+        FadeScreen.instance.FadeOutScreen();
         yield return new WaitUntil(() => FadeScreen.instance.fadeOcurring == false);
 
         EnablePlayerMovementsController();
-
         inTransition = false;
     }
 
@@ -141,21 +132,21 @@ public class CanvaManager : MonoBehaviour
 
     public void Navigate(Vector2 navigations)
     {
-        if(!inTransition)
+        if (!inTransition)
         {
-            if(itemPanel.activeSelf)
+            if (itemPanel.activeSelf)
             {
-                if(navigations == Vector2.left)
+                if (navigations == Vector2.left)
                 {
-                    if(panelTextIndex-1 >= 0)
+                    if (panelTextIndex - 1 >= 0)
                     {
                         panelTextIndex--;
                         panelText.text = itemInView.itemInteractText[panelTextIndex];
                     }
                 }
-                else if(navigations == Vector2.right)
+                else if (navigations == Vector2.right)
                 {
-                    if(panelTextIndex+1 < itemInView.itemInteractText.Count())
+                    if (panelTextIndex + 1 < itemInView.itemInteractText.Count())
                     {
                         panelTextIndex++;
                         panelText.text = itemInView.itemInteractText[panelTextIndex];
@@ -163,16 +154,21 @@ public class CanvaManager : MonoBehaviour
                 }
             }
         }
-        
     }
 
     public void Submit()
     {
-        if(!inTransition)
+        if (!inTransition)
         {
-            if(itemPanel.activeSelf)
+            if (itemPanel.activeSelf)
             {
-                if(panelTextIndex == itemInView.itemInteractText.Count()-1)
+                print(panelText.text);
+
+                if (panelText.text == "I don’t want to offer my blood… but do I even have a choice?")
+                {
+                    itemInView.ShowChoice();
+                }
+                else if (panelTextIndex == itemInView.itemInteractText.Count() - 1)
                 {
                     LeaveItemView();
                 }
@@ -187,9 +183,9 @@ public class CanvaManager : MonoBehaviour
 
     public void Cancel()
     {
-        if(!inTransition)
+        if (!inTransition)
         {
-            if(itemPanel.activeSelf)
+            if (itemPanel.activeSelf)
             {
                 LeaveItemView();
             }

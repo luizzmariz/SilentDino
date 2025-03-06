@@ -2,12 +2,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class ButtonHoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonHoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
     private TextMeshProUGUI buttonText; // Referência ao TextMeshPro
 
     public Color hoverTextColor = Color.red; // Cor do texto no hover
     public Color normalTextColor = Color.white; // Cor padrão do texto
+    public bool autoFocusOnAwake = false; // Booleano para pegar foco automaticamente
+
+    void OnEnable()
+    {
+        if (autoFocusOnAwake)
+        {
+            EventSystem.current.SetSelectedGameObject(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -37,6 +46,22 @@ public class ButtonHoverText : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (buttonText != null)
         {
             buttonText.color = normalTextColor; // Retorna à cor normal do texto
+        }
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        if (buttonText != null)
+        {
+            buttonText.color = hoverTextColor; // Muda o texto para vermelho quando recebe foco
+        }
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        if (buttonText != null)
+        {
+            buttonText.color = normalTextColor; // Retorna à cor normal quando perde foco
         }
     }
 }
