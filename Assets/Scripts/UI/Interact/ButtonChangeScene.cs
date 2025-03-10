@@ -32,10 +32,11 @@ public class SceneChanger : MonoBehaviour
         if (sceneName == "Stage1")
         {
             FadePanel.SetActive(true);
-            StartCoroutine(EnterCutsceneTransition());
-
+            //StartCoroutine(EnterCutsceneTransition());
+            
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            SceneManager.LoadScene(sceneName);
         }
         else
         {
