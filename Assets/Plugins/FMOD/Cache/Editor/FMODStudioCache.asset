@@ -420,10 +420,10 @@ MonoBehaviour:
   Path: Assets/Sounds/sfxgargantua/sfxgargantua/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638769717772296980
+  lastModified: 638772185219758730
   FileSizes:
   - Name: Desktop
-    Value: 2118
+    Value: 2182
   Exists: 1
 --- !u!114 &-1476410548316785284
 MonoBehaviour:
@@ -521,12 +521,13 @@ MonoBehaviour:
   - {fileID: -7345987099329484617}
   - {fileID: 3622957086474764779}
   - {fileID: 3507143905514172465}
+  - {fileID: 8771041529481859378}
   EditorParameters: []
   MasterBanks:
   - {fileID: 502735698281480779}
   StringsBanks:
   - {fileID: -1884332313642199465}
-  cacheTime: 638769717772296980
+  cacheTime: 638772185219758730
   cacheVersion: 131622
 --- !u!114 &502735698281480779
 MonoBehaviour:
@@ -543,10 +544,10 @@ MonoBehaviour:
   Path: Assets/Sounds/sfxgargantua/sfxgargantua/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638769717772281878
+  lastModified: 638772185219733478
   FileSizes:
   - Name: Desktop
-    Value: 2826336
+    Value: 3074400
   Exists: 1
 --- !u!114 &602169540007841199
 MonoBehaviour:
@@ -677,7 +678,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 502735698281480779}
   IsStream: 1
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
@@ -791,3 +792,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 61635
+--- !u!114 &8771041529481859378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/monstro/Creatures/Screams from the gate
+  m_EditorClassIdentifier: 
+  Path: event:/monstro/Creatures/Screams from the gate
+  Guid:
+    Data1: -1270845641
+    Data2: 1179986584
+    Data3: 157233596
+    Data4: 1682705202
+  Banks:
+  - {fileID: 502735698281480779}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 100
+  Length: 19226

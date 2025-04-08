@@ -5,7 +5,7 @@
 			<value>Breathing</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{b3353e07-bead-4d28-90b3-c87301bfcd4f}</destination>
@@ -27,6 +27,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{15ae2702-7e17-45f2-b93b-6738fd31b428}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{01e33bcb-cce6-46ce-8d3c-7ce71150ac3c}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{ce505d46-4bbb-40f1-adab-9528e3119805}">
@@ -105,9 +108,11 @@
 	<object class="MixerBusEffectChain" id="{f521f95c-7d77-4cab-b5c5-0f056ca7f22f}">
 		<relationship name="effects">
 			<destination>{da15471e-f155-4192-9371-7c91cdce06f8}</destination>
+			<destination>{e68be360-5063-479e-a030-a61e25451d74}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5fbd1bd8-0d1e-4ba6-a5e3-7b8c504f4a5f}" />
 	<object class="MixerBusFader" id="{59842eab-59dc-4df5-8631-3bd0a3ebd670}" />
 	<object class="MixerBusFader" id="{da15471e-f155-4192-9371-7c91cdce06f8}" />
+	<object class="SpatialiserEffect" id="{e68be360-5063-479e-a030-a61e25451d74}" />
 </objects>
